@@ -1,6 +1,27 @@
-var container = document.querySelector('#container');
+(function() {
+    request = new XMLHttpRequest();
+	request.open('GET', 'data/dipusaurios.json', true);
 
-var isotope = new Isotope( container, {
-  itemSelector: '.person',
-  layoutMode: 'fitRows'
-});
+	request.onload = function() {
+	  if (request.status >= 200 && request.status < 400){
+	    var data = JSON.parse(request.responseText),
+	    getTemplate = document.querySelector("#person-template").innerHTML,
+        template    = Handlebars.compile(getTemplate),
+        result      = template(data);
+        console.log(data);
+        document.querySelector(".content__people").innerHTML = result;
+	  }
+	};
+
+	request.send();
+
+    var container = document.querySelector('.content__people');
+
+	var isotope = new Isotope( container, {
+	  itemSelector: '.person',
+	  layoutMode: 'fitRows'
+	});
+
+})();
+
+

@@ -26,14 +26,33 @@
                     <button class="button" data-filter=".department">Departamento</button>
                 </div>
                 <div class="content__people">
-                    <div class="person">
-                        
-                    </div>
+                    <script id="person-template" type="text/x-handlebars-template">
+                        {{#each diputados}}
+                        <div class="person">
+                            <img class="person__image" src="http://placehold.it/320x250" alt="">
+                            <div class="person__info">
+                                <div class="person__name">
+                                    <span>Nombre {{this.id}}</span>
+                                </div>
+                                <div class="years__charge">
+                                    <span>10 años</span>
+                                </div>
+                                <div class="person__charge">
+                                    <span>Diputado en San Salvador por Arena</span>
+                                </div>
+                                <div class="person__contact">
+                                    <span>Share</span>
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </script>                    
                 </div>
             </div>
         </section>
         
         <script src="js/isotope.pkgd.min.js"></script>
+        <script src="js/handlebars-v1.3.0.js"></script>
         <script src="js/dipusaurios.min.js"></script>
     </body>
 </html>
