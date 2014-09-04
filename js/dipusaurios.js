@@ -12,7 +12,7 @@ window.onload = function() {
 
         var container = document.querySelector(".content__people");
 
-		var s = new Isotope( container, {
+		var isotope = new Isotope( container, {
 		  itemSelector: '.person',
 		  layoutMode: 'fitRows'
 		});
