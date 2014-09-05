@@ -21,38 +21,63 @@
 
         <section class="content">
             <div class="kontainer">
-                <div class="content__buttons">
-                    <button class="button" data-filter=".party">Partido politico</button>
-                    <button class="button" data-filter=".department">Departamento</button>
+                <div id="partys" class="button-group">
+                  <button data-filter="*">Todos</button>
+                  <button data-filter=".arena">ARENA</button>
+                  <button data-filter=".fmln">FMLN</button>
+                  <button data-filter=".pcn">PCN</button>
+                  <button data-filter=".cd">CD</button>
+                  <button data-filter=".grupo">Grupo Parlamentario  Unidos por El Salvador</button>
                 </div>
-                <div class="content__people" id="ola">
-                    <script id="person-template" type="text/x-handlebars-template">
-                        {{#each diputados}}
-                        <div class="person person-{{this.id}}">
-                            <img class="person__image" src="http://placehold.it/320x250" alt="">
-                            <div class="person__info">
-                                <div class="person__name">
-                                    <span>{{this.name}}</span>
-                                </div>
-                                <div class="years__charge">
-                                    <span>{{this.years}} años</span>
-                                </div>
-                                <div class="person__charge">
-                                    <span>Diputado en {{this.department}} por {{this.party}}</span>
-                                </div>
-                                <div class="person__contact">
-                                    <span>Share</span>
-                                </div>
-                            </div>
-                        </div>
-                        {{/each}}
-                    </script>                
+                <div class="content__buttons">
+                    <select id="filters">
+                        <option value="*" selected="selected">Seleccione -- </option>
+                        <option value=".ahuachapan">Ahuachapán</option>
+                        <option value=".cabanas">Cabañas</option>
+                        <option value=".chalatenango">Chalatenango</option>
+                        <option value=".cuscatlan">Cuscatlán</option>
+                        <option value=".la-libertad">La Libertad</option>
+                        <option value=".la-paz">La Paz</option>
+                        <option value=".la-union">La Unión</option>
+                        <option value=".morazan">Morazán</option>
+                        <option value=".san-miguel">San Miguel</option>
+                        <option value=".san-salvador">San Salvador</option>
+                        <option value=".san-vicente">San Vicente</option>
+                        <option value=".santa-ana">Santa Ana</option>
+                        <option value=".sonsonate">Sonsonate</option>
+                        <option value=".usulutan">Usulután</option>
+                     </select>
+                </div>
+                <div class="content__people">
+                        <p>Cargando...</p>        
                 </div>
             </div>
         </section>
-        
+        <script id="person-template" type="text/x-handlebars-template">
+            {{#each diputados}}
+            <div class="person {{this.department_clean}} {{this.party_clean}} person-{{this.id}}">
+                <img class="person__image" src="http://placehold.it/320x250" alt="">
+                <div class="person__info">
+                    <div class="person__name">
+                        <span>{{this.name}}</span>
+                    </div>
+                    <div class="years__charge">
+                        <span>{{this.years}} años</span>
+                    </div>
+                    <div class="person__charge">
+                        <span>Diputado en {{this.department}} por {{this.party}}</span>
+                    </div>
+                    <div class="person__contact">
+                        <span>Share</span>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </script>  
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="js/isotope.pkgd.min.js"></script>
         <script src="js/handlebars-v1.3.0.js"></script>
-        <script src="js/dipusaurios.min.js"></script>
+        <script src="js/dipusaurios.min.js"></script>      
+
     </body>
 </html>
