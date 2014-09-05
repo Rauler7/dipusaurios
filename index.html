@@ -25,20 +25,20 @@
                     <button class="button" data-filter=".party">Partido politico</button>
                     <button class="button" data-filter=".department">Departamento</button>
                 </div>
-                <div class="content__people">
+                <div class="content__people" id="ola">
                     <script id="person-template" type="text/x-handlebars-template">
                         {{#each diputados}}
-                        <div class="person">
+                        <div class="person person-{{this.id}}">
                             <img class="person__image" src="http://placehold.it/320x250" alt="">
                             <div class="person__info">
                                 <div class="person__name">
-                                    <span>Nombre {{this.id}}</span>
+                                    <span>{{this.name}}</span>
                                 </div>
                                 <div class="years__charge">
-                                    <span>10 años</span>
+                                    <span>{{this.years}} años</span>
                                 </div>
                                 <div class="person__charge">
-                                    <span>Diputado en San Salvador por Arena</span>
+                                    <span>Diputado en {{this.department}} por {{this.party}}</span>
                                 </div>
                                 <div class="person__contact">
                                     <span>Share</span>
@@ -46,7 +46,7 @@
                             </div>
                         </div>
                         {{/each}}
-                    </script>                    
+                    </script>                
                 </div>
             </div>
         </section>

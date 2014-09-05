@@ -1,4 +1,4 @@
-(function() {
+window.onload = function() {
     request = new XMLHttpRequest();
 	request.open('GET', 'data/dipusaurios.json', true);
 
@@ -8,20 +8,19 @@
 	    getTemplate = document.querySelector("#person-template").innerHTML,
         template    = Handlebars.compile(getTemplate),
         result      = template(data);
-        console.log(data);
         document.querySelector(".content__people").innerHTML = result;
+
+        var container = document.querySelector(".content__people");
+
+		var isotope = new Isotope( container, {
+		  itemSelector: '.person',
+		  layoutMode: 'fitRows'
+		});
 	  }
 	};
 
 	request.send();
 
-    var container = document.querySelector('.content__people');
-
-	var isotope = new Isotope( container, {
-	  itemSelector: '.person',
-	  layoutMode: 'fitRows'
-	});
-
-})();
+};
 
 
